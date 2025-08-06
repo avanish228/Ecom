@@ -49,4 +49,17 @@ public class ProductServiceImpl implements ProductService {
             return productDto;
         }).toList();
     }
+
+    @Override
+    public ProductDto getById(Long id) {
+        Product product= this.productRepository.findById(id).orElseThrow( () -> new IllegalArgumentException());
+        ProductDto productDto=new ProductDto();
+        productDto.setId(product.getId());
+        productDto.setQuantity(product.getQuantity());
+        productDto.setName(product.getName());
+        productDto.setPrice(product.getPrice());
+        productDto.setCategoryId(product.getCategory().getId());
+
+        return productDto;
+    }
 }

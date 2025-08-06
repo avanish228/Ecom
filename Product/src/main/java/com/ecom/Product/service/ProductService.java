@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProductService {
     ProductDto saveProduct(ProductDto productDto);
     List<ProductDto> getAllProducts();
+
+    ProductDto getById(Long id);
 }
